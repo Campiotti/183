@@ -63,7 +63,7 @@ class ItemController extends BaseController implements ControllerInterface
         $old = new Item();
         $new = new Item();
         $old->view($id);
-        if(count($_FILES)>0)
+        if(strlen($_FILES['image']['name'])>1)
             $data['image']=$this->uploadImage();
         else
             $data['image']=$old->image;
@@ -71,6 +71,7 @@ class ItemController extends BaseController implements ControllerInterface
         $new->patchEntity($data);
         if($new->isValid())
             $new->update();
+
         $this->httpHandler->redirect('item','view/'.$id);
 
     }

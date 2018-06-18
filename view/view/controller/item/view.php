@@ -7,4 +7,5 @@
  */$item=$this->item;?>
 <h1><?php echo$item->title?></h1><br>
 <textarea readonly><?php echo$item->description?></textarea><br>
-<img src="<?php echo$this->public_image.$item->image?>">
+<img src="<?php echo$this->public_image.$item->image?>"><br>
+<a href="/item/update/<?php echo$item->getId()?>">Edit</a><br>
