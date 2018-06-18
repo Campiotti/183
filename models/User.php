@@ -22,12 +22,12 @@ class user extends Entity
 
     }
 
-    protected function viewByUsername($name){
+    public function viewByUsername($name){
         $t=$this->queryBuilder->setTable($this->tableName)
             ->setMode(0)
             ->addCond($this->tableName,'username',0,$name,0)
             ->executeStatement()[0];
             $this->patchEntity($t);
     }
-    
+
 }

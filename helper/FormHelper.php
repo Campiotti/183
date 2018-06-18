@@ -43,6 +43,9 @@ class FormHelper extends BaseHelper
         if(!isset($options['maxlength'])){
             $options['maxlength']=null;
         }
+        if(!isset($options['value'])){
+            $options['value']=null;
+        }
         $this->renderer->setAttribute('name', $name);
         $this->renderer->setAttribute('classes', $classes);
         $this->renderer->setAttribute('type', $type);
@@ -55,6 +58,7 @@ class FormHelper extends BaseHelper
             $this->renderer->setAttribute('required',$options['required']);
         }
         $this->renderer->setAttribute('maxlength',$options['maxlength']);
+        $this->renderer->setAttribute('value',$options['value']);
         $this->renderer->setAttribute('onchange',$options['onchange']);
         $this->renderer->setAttribute('onkeyup',$options['onkeyup']);
         $this->renderer->setAttribute('id',$options['id']);
