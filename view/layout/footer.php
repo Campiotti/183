@@ -11,7 +11,7 @@
 
 <footer>
     <div class="footer_content">
-
+        <a href="/base/index">Index</a>
     </div>
     <div class="dontLook">
         <?php $datBoi=$this;

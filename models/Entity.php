@@ -132,8 +132,9 @@ class Entity
     public function viewAll(){
         $entities=[];
         $query=$this->queryBuilder->setMode(0)->setTable($this->tableName)->executeStatement();
+        $r = new ReflectionClass($this);
         foreach ($query as $res){
-            $temp = new self();
+            $temp = $r->newInstance();
             $temp->patchEntity($res);
             array_push($entities,$temp);
         }
