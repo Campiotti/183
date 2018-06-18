@@ -54,7 +54,7 @@ class UserController extends BaseController implements ControllerInterface
             $user = new user();
             $user->delete($id);
             if($this->renderer->sessionManager->getSessionItem('User','id')==$id)
-                $this->renderer->sessionManager->unsetSessionArray('User');
+                $this->logout();
         }
         $this->baseRedirect();
     }
@@ -102,21 +102,22 @@ class UserController extends BaseController implements ControllerInterface
     }
 
     public function logout(){
-        $this->renderer->sessionManager->unsetSessionArray('User');
+        session_destroy();
         $this->httpHandler->redirect('base','index');
     }
 
     public function update(){
         $new = new user();
         $old = new user();
-        if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('user')){
+        $usr = new user();
+        if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User')){
             $old->view($this->renderer->sessionManager->getSessionItem('User','id'));
             $data = $this->httpHandler->getData();
-            $usr = new user();
             $usr->viewByUsername($data['username']);
             if(($usr->getId() == $old->getId() || $usr->getId()==null) && password_verify($data['password'],$old->password)){
                 if($data['newpassword']!=null && strlen($data['newpassword'])>0)
-                    $data['password']=password_hash($data['newpassword'],PASSWORD_DEFAULT);
+                    $data['password']=$data['newpassword'];
+                $data['password']=password_hash($data['password'],PASSWORD_DEFAULT);
                 $data['id']=$old->getId();
                 $new->patchEntity($data);
                 if($new->isValid())

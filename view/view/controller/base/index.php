@@ -8,7 +8,12 @@
 ?>
 
 <?php if($this->sessionManager->isSet('User')){?>
-<a href="/user/login">Login</a>
+    <a href="/user/profile">Profile</a>
     <br>
-<?php }?>
-<a href="/user/register">Register</a>
+    <a href="/item/display">Display Items</a>
+    <br>
+<?php }else{?>
+    <a href="/user/login">Login</a>
+    <br>
+    <a href="/user/register">Register</a>
+<?php } ?>
