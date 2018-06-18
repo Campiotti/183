@@ -10,6 +10,8 @@
 <?php if($this->sessionManager->isSet('User')){?>
     <a href="/user/profile">Profile</a>
     <br>
+    <a href="/item/new">Add Item</a>
+    <br>
     <a href="/item/display">Display Items</a>
     <br>
 <?php }else{?>

@@ -9,6 +9,9 @@
 namespace controller;
 
 
+use helper\fileUploader;
+use models\Item;
+
 class ItemController extends BaseController implements ControllerInterface
 {
 
@@ -19,7 +22,11 @@ class ItemController extends BaseController implements ControllerInterface
 
     public function add()
     {
-        // TODO: Implement add() method.
+        if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User')){
+            $data = $this->httpHandler->getData();
+            $item = new Item();
+            $data['image']=$this->uploadImage();
+        }
     }
 
     public function view(int $id)
@@ -38,6 +45,13 @@ class ItemController extends BaseController implements ControllerInterface
     }
 
     public function display(){
+        $item = new Item();
+        $items=$item->viewAll();
+        $this->renderer->setAttribute('items',$items);
+    }
 
+    private function uploadImage($name='image',$type=0){
+        $fileUploader = new fileUploader();
+        return$fileUploader->upload($_FILES[$name],$type);
     }
 }

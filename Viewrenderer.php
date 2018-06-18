@@ -27,7 +27,7 @@ class Viewrenderer
     public $queryBuilder;
     public $controller;
     public $sessionManager;
-    private $viewVars = ['image'=>'/assets/images/','assets'=>'/assets/'];
+    private $viewVars = ['image'=>'/assets/images/','assets'=>'/assets/', 'public_image'=>'/assets/public/user_uploads/images/'];
 
     public $headerIndex = 0;
 
@@ -42,6 +42,7 @@ class Viewrenderer
         $this->sessionManager = new\services\SessionManager();
         $this->setAttribute('image',"/".basename(__DIR__).$this->image);
         $this->setAttribute('assets',"/".basename(__DIR__).$this->assets);
+        $this->setAttribute('public_image',"/".basename(__DIR__).$this->public_image);
     }
 
 

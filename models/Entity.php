@@ -129,6 +129,17 @@ class Entity
         $this->patchEntity($res[0]);
     }
 
+    public function viewAll(){
+        $entities=[];
+        $query=$this->queryBuilder->setMode(0)->setTable($this->tableName)->executeStatement();
+        foreach ($query as $res){
+            $temp = new self();
+            $temp->patchEntity($res);
+            array_push($entities,$temp);
+        }
+        return $entities;
+    }
+
     public function getId(){
         return$this->id;
     }
