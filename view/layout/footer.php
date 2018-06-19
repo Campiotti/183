@@ -11,6 +11,7 @@
 
 <footer>
     <div class="footer_content">
+        <br>
         <a href="/base/index">Index</a>
     </div>
     <div class="dontLook">

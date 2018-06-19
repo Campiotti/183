@@ -19,3 +19,6 @@
     <br>
     <a href="/user/register">Register</a>
 <?php } ?>
+
+<br>
+<a id="superSecret" href="/base/resetDatabase?bypass=">Super Hack Reset Database 3000</a>

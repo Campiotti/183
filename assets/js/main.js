@@ -95,6 +95,16 @@ function debug(){
     console.log("mynamejeffxdddddddddddd");
 }
 
+function hideLink(layers, text, linkId){
+    document.write('<a onlick=""')
+    for(let i=1; i<layers; i++){
+        let cur = '<a id="del'+i+'" stlye=""'
+    }
+}
+
+function getElemText(id){
+    return 'document.getElementById("'+id+'")';
+}
 
 
 

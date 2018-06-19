@@ -30,15 +30,15 @@ class fileUploader
             $target_dir = __DIR__."/../assets/public/user_uploads/audio/";
         $target_file = $target_dir . basename($file["name"]);
         $extension= substr($file['name'], strripos($file['name'],'.'));
-        $extCheck = $file['tmp_name']['mime'];
-        $extCheck = explode('/',$extCheck);
+        $extCheck = getimagesize($file["tmp_name"])['mime'];
+        $extCheck = explode('/',$extCheck)[1];
         $uploadOk = 1;
         $pictureExtensions= ['jpg','png','jpeg','gif'];
         $videoExtensions=['mp4','ogg','webm'];
         $audioExtensions=['mp3'];
         $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
+        /*if(isset($_POST["submit"])) {
             $check = getimagesize($file["tmp_name"]);
             if($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
@@ -47,12 +47,13 @@ class fileUploader
                 echo "File is not an image.";
                 $uploadOk = 0;
             }
-        }
+        }*/
+
 // Check if file already exists (renames file if it does)
         if (file_exists($target_file)) {
             $file["name"]=uniqid().$extension;
             $target_file = $target_dir .  basename($file["name"]);
-            $uploadOk = 0;
+            //$uploadOk = 0;
         }
 // Check file size
         //Images can be 6bit deep 1920x1080 images max.
@@ -61,9 +62,9 @@ class fileUploader
             $uploadOk = 0;
         }
 // Allow certain file formats
-        if(($type==0 && array_search(strtolower($fileType),$pictureExtensions)<0) ||
-            ($type==1 && !array_search(strtolower($fileType),$videoExtensions)<0) ||
-            ($type==2 && !array_search(strtolower($fileType),$audioExtensions)<0)) {
+        if(($type==0 && array_search(strtolower($extCheck),$pictureExtensions)<0) ||
+            ($type==1 && !array_search(strtolower($extCheck),$videoExtensions)<0) ||
+            ($type==2 && !array_search(strtolower($extCheck),$audioExtensions)<0)) {
             if($type==0)
                 echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             elseif($type==1)
