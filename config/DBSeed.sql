@@ -25,3 +25,5 @@ INSERT INTO Item VALUES(null,'The FitnessGram™ Pacer Test','The FitnessGram™
 INSERT INTO Item VALUES(null,'Zelda from Link','Its Link from Zelda','hqdefault.jpg');
 INSERT INTO ITEM VALUES(null,'👍','👍👍👍👍👍👍👍👍👍👍👍','Kids.jpg');
 INSERT INTO ITEM VALUES(null,'Roj','Its Roj Boj','Roj.PNG');
+INSERT INTO Item VALUES(null,'Diggerman','Le Diggerman','1516367007514_mobile__0_1_964_334_c105390a0808766d8d2d0f210f7e9a2d[1].png');
+INSERT INTO Item VALUES(null,'John Scarce','Double Upload','ScarceIsThicc.jpg');

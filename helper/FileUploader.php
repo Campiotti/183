@@ -30,8 +30,6 @@ class fileUploader
             $target_dir = __DIR__."/../assets/public/user_uploads/audio/";
         $target_file = $target_dir . basename($file["name"]);
         $extension= substr($file['name'], strripos($file['name'],'.'));
-        $extCheck = getimagesize($file["tmp_name"])['mime'];
-        $extCheck = explode('/',$extCheck)[1];
         $uploadOk = 1;
         $pictureExtensions= ['jpg','png','jpeg','gif'];
         $videoExtensions=['mp4','ogg','webm'];
@@ -62,9 +60,11 @@ class fileUploader
             $uploadOk = 0;
         }
 // Allow certain file formats
-        if(($type==0 && array_search(strtolower($extCheck),$pictureExtensions)<0) ||
+        $extCheck = getimagesize($file["tmp_name"])['mime'];
+        if(($type==0 && !array_search(strtolower($extCheck),$pictureExtensions)<0) ||
             ($type==1 && !array_search(strtolower($extCheck),$videoExtensions)<0) ||
-            ($type==2 && !array_search(strtolower($extCheck),$audioExtensions)<0)) {
+            ($type==2 && !array_search(strtolower($extCheck),$audioExtensions)<0) ||
+        $extCheck=="" || strlen($extCheck)==0 || $extCheck==null) {
             if($type==0)
                 echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             elseif($type==1)

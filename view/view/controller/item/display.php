@@ -21,5 +21,5 @@ foreach($this->items as $item){?>
     <?php if($i%4==0)
         echo"</div>"?>
 <?php $i++;}?>
-<?php if($i%4!=0)
+<?php if($i-1%4!=0)
     echo"</div>"?>
