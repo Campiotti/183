@@ -88,6 +88,7 @@ class UserController extends BaseController implements ControllerInterface
                 $ussr=$this->renderer->queryBuilder->setTable('User')->setMode(0)
                     ->addCond('User','id',0,$user['id'],0)
                     ->executeStatement()[0];
+                $this->renderer->sessionManager->regenSessionId();
                 $this->renderer->sessionManager->setSessionArray('User',$ussr);
                 $this->httpHandler->redirect('user','profile');
             }

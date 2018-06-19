@@ -30,6 +30,8 @@ class fileUploader
             $target_dir = __DIR__."/../assets/public/user_uploads/audio/";
         $target_file = $target_dir . basename($file["name"]);
         $extension= substr($file['name'], strripos($file['name'],'.'));
+        $extCheck = $file['tmp_name']['mime'];
+        $extCheck = explode('/',$extCheck);
         $uploadOk = 1;
         $pictureExtensions= ['jpg','png','jpeg','gif'];
         $videoExtensions=['mp4','ogg','webm'];

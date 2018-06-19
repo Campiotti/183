@@ -22,6 +22,10 @@ class SessionManager
 
     }
 
+    public function regenSessionId(){
+        session_regenerate_id();
+    }
+
     /**
      * in here we can create a new array in the session
      * if it already exists it will be overwritten

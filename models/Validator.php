@@ -111,7 +111,7 @@ class Validator
     {
         if ($this->isValid) {
             $this->isValid = !empty($this->entity->$propertyName);
-            if ($this->isValid == false) {
+            if ($this->isValid == false || $this->entity->$propertyName==null) {
                 $this->errors[$propertyName] = ucfirst($propertyName) . " cannot be left empty";
             }
         }

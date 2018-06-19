@@ -129,9 +129,13 @@ class Entity
         $this->patchEntity($res[0]);
     }
 
-    public function viewAll(){
+    public function viewAll($options=[], $andOr=true){
         $entities=[];
-        $query=$this->queryBuilder->setMode(0)->setTable($this->tableName)->executeStatement();
+        $query=$this->queryBuilder->setMode(0)->setTable($this->tableName);
+        if($options!=null)
+            foreach($options as $option => $value)
+                $query->addCond($this->tableName,$option,0,$value, $andOr);
+        $query= $query->executeStatement();
         $r = new ReflectionClass($this);
         foreach ($query as $res){
             $temp = $r->newInstance();

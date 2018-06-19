@@ -123,7 +123,7 @@ class BaseController
 
     /**
      * Test function which helps you see if your controllers are setup correctly and are running as they should.
-     * To be sure that it works, also verify that contents of the test.php file in the view folder are displayed as well.
+     * To be sure that it works, also verify that contents of the temp.php file in the view folder are displayed as well.
      */
     public function test(){
         echo$this->controllerName."<-- is controller name";
