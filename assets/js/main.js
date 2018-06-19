@@ -96,14 +96,18 @@ function debug(){
 }
 
 function hideLink(layers, text, linkId){
-    document.write('<a onlick=""')
-    for(let i=1; i<layers; i++){
-        let cur = '<a id="del'+i+'" stlye=""'
+    document.write('<a onclick="'+getElemText('del1')+'.style.display=\'block\'" href="#">'+text+'</a>');
+    for(let i=1; i<=layers; i++){
+        let elem = 'del'+(i+1);
+        if(i === layers)
+            elem = linkId;
+        let cur = '<a href="#" id="del'+i+'" style="display: none" onclick="'+getElemText(elem)+'.style.display=\'block\'">'+text+'</a>';
+        document.write(cur);
     }
 }
 
 function getElemText(id){
-    return 'document.getElementById("'+id+'")';
+    return "document.getElementById('"+id+"')";
 }
 
 
