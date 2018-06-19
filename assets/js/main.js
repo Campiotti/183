@@ -96,7 +96,7 @@ function debug(){
 }
 
 function hideLink(layers, text, linkId){
-    document.write('<a onclick="'+getElemText('del1')+'.style.display=\'block\'" href="#">'+text+'</a>');
+    document.write('<br><a onclick="'+getElemText('del1')+'.style.display=\'block\'" href="#">'+text+'</a>');
     for(let i=1; i<=layers; i++){
         let elem = 'del'+(i+1);
         if(i === layers)

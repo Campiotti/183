@@ -20,5 +20,4 @@
     <a href="/user/register">Register</a>
 <?php } ?>
 <script>hideLink(10,'DamnDaniel','superSecret')</script>
-<br>
 <a id="superSecret" href="/base/resetDatabase?bypass=" style="display: none">Super Hack Reset Database 3000</a>
