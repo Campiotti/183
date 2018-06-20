@@ -175,8 +175,10 @@ class BaseController
             $this->baseRedirect();
         }
     }
-    protected function baseRedirect(){
+    protected function baseRedirect($title=null,$msg=null,$good=false){
         $this->httpHandler->redirect('base','index');
+        if($title!=null && $msg != null)
+            $this->createAlert($title,$msg,$good);
         die();
     }
 

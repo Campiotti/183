@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Viewrenderer Final Extended</title>
+    <title>Super AntiHack 3000</title>
     <meta charset="utf-8">
     <link rel="icon" href="<?php echo$this->image?><?php echo "icon.ico" ?>">
     <link rel="shortcut icon" href="<?php echo$this->image?><?php echo "icon.ico" ?>" />

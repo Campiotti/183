@@ -28,10 +28,12 @@ class ItemController extends BaseController implements ControllerInterface
             $item = new Item();
             $data['image']=$this->uploadImage();
             if($data['image']=="")
-                $this->baseRedirect();
+                $this->baseRedirect('Error while adding item!','image was invalid or none was provided!');
             $item->patchEntity($data);
             if($item->isValid())
                 $item->save();
+            else
+                $this->baseRedirect('invalid input','requirements for item were not met!');
         }
         $this->httpHandler->redirect('item','display');
     }
@@ -43,13 +45,13 @@ class ItemController extends BaseController implements ControllerInterface
         $item->view($id);
         $this->renderer->setAttribute('item',$item);
         if($item->title==null || $item->title=="")
-            $this->baseRedirect();
+            $this->baseRedirect('Invalid Item ID','Item could not be found!');
     }
 
     public function delete(int $id)
     {
         if($id != $this->renderer->sessionManager->getSessionItem('Item','id'))
-            $this->baseRedirect();
+            $this->baseRedirect('Invalid','Deletion was prohibited');
         $this->checkLoggedIn();
         $item = new Item();
         $item->delete($id);
