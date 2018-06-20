@@ -17,4 +17,4 @@ echo $this->formHelper->createForm("user","/user/update","POST"); ?>
 <!--a href="/base/index">Index</a-->
 <a onclick="document.getElementById('del').style.display='block'" href="#">Delete Account</a>
 
-<a id="del" href="/user/delete/123456789" style="display: none">Confirm Deletion</a>
+<a id="del" href="/user/delete/0" style="display: none">Confirm Deletion</a>

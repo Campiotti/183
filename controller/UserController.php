@@ -51,11 +51,10 @@ class UserController extends BaseController implements ControllerInterface
 
     public function delete(int $id)
     {
-        if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User')){
+        if($this->renderer->sessionManager->isSet('User')){
             $user = new user();
-            $user->delete($id);
-            if($this->renderer->sessionManager->getSessionItem('User','id')==$id)
-                $this->logout();
+            $user->delete($this->renderer->sessionManager->getSessionItem('User','id'));
+            $this->logout();
         }
         $this->baseRedirect();
     }
