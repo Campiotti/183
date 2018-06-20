@@ -170,9 +170,9 @@ class BaseController
         die();
     }
 
-    protected function checkLoggedIn(){
+    protected function checkLoggedIn($title=null,$msg=null,$good=false){
         if(!$this->renderer->sessionManager->isSet('User')){
-            $this->baseRedirect();
+            $this->baseRedirect($title,$msg,$good);
         }
     }
     protected function baseRedirect($title=null,$msg=null,$good=false){

@@ -11,7 +11,8 @@
 
 /* 183 */
 .itemRow{display: flex; flex-direction: row; max-height: 25%; background-color: deeppink;}
-.listItem{flex: 20%; max-height: 25%; background-color: hotpink; margin: 2.5%;}
+.listItem{flex: 20%; max-height: 25%; background-color: hotpink; margin: 2.5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 .itemTitle{}
 .itemDesc{}
 .itemImage{max-width: 100%; max-height: 100%;}

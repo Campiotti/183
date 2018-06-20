@@ -51,7 +51,7 @@ class ItemController extends BaseController implements ControllerInterface
     public function delete(int $id)
     {
         if($id != $this->renderer->sessionManager->getSessionItem('Item','id'))
-            $this->baseRedirect('Invalid','Deletion was prohibited');
+            $this->baseRedirect('Invalid','Deletion was prohibited because of suspicious activity.');
         $this->checkLoggedIn();
         $item = new Item();
         $item->delete($id);

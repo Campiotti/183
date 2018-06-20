@@ -26,7 +26,7 @@ class UserController extends BaseController implements ControllerInterface
             $data=$this->httpHandler->getData();
             if($data['password']!=$data['password2']){
                 $this->httpHandler->redirect('user','register');
-                echo"Password repeat did not match!";
+                $this->createAlert('Register failed',"Password repeat did not match!",false);
                 die();
             }
             $usr = new user();
@@ -36,10 +36,11 @@ class UserController extends BaseController implements ControllerInterface
             if($user->isValid() && $usr->getId() == null){
                 $user->save();
                 $this->httpHandler->redirect('user', 'login');
+                $this->createAlert('Register succeeded','you can now login',true);
                 die();
             }
-            echo"username already taken!";
             $this->httpHandler->redirect('user','register');
+            $this->createAlert('Register failed',"username already taken!",false);
         }
     }
 
@@ -96,7 +97,7 @@ class UserController extends BaseController implements ControllerInterface
     }
 
     public function profile(){
-        $this->checkLoggedIn();
+        $this->checkLoggedIn('Error','you\'re not logged in!');
         $user = new user();
         $user->view($this->renderer->sessionManager->getSessionItem('User','id'));
         $this->renderer->setAttribute('user',$user);
@@ -108,6 +109,7 @@ class UserController extends BaseController implements ControllerInterface
     }
 
     public function update(){
+        $this->checkLoggedIn('Error','You need to be logged in to do that!');
         $new = new user();
         $old = new user();
         $usr = new user();
@@ -121,9 +123,14 @@ class UserController extends BaseController implements ControllerInterface
                 $data['password']=password_hash($data['password'],PASSWORD_DEFAULT);
                 $data['id']=$old->getId();
                 $new->patchEntity($data);
-                if($new->isValid())
+                if($new->isValid()){
                     $new->update();
-            }
+                    $this->createAlert('Success','successfully updated your profile info!',true);
+                }else
+                    $this->createAlert('Error','There was an error handling your request',false);
+
+            }else
+                $this->createAlert('Error','Wrong password entered, please try again!',false);
         }
         $this->httpHandler->redirect('user','profile');
     }

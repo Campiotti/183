@@ -27,3 +27,37 @@ INSERT INTO ITEM VALUES(null,'👍','👍👍👍👍👍👍👍👍👍👍�
 INSERT INTO ITEM VALUES(null,'Roj','Its Roj Boj','Roj.PNG');
 INSERT INTO Item VALUES(null,'Diggerman','Le Diggerman','1516367007514_mobile__0_1_964_334_c105390a0808766d8d2d0f210f7e9a2d[1].png');
 INSERT INTO Item VALUES(null,'John Scarce','Double Upload','ScarceIsThicc.jpg');
+INSERT INTO Item VALUES(null,'Name John Cener','
+⠀⠀⠀⠀⣿⣿⣿
+⠀⠀⠀⠀⣿⣿⣿
+⠀⠀⠀⠀⣿⣿⣿
+⠀⠀⠀⠀⣿⣿⣿
+⠀⠀⠀⠀⣿⣿⣿
+⠀⠀ ⡐⣠⣦⣤⠀⢃
+⠀⠀⠀⠀⢡⣤⣿⣿
+⠀⠀⠀⠀⠠⠜⢾⡟
+⠀⠀⠀⠀⠀⠹⠿⠃⠄
+⠀⠀⠈⠀⠉⠉⠑⠀⠀⠠⢈⣆
+⠀⠀⣄⠀⠀⠀⠀⠀⢶⣷⠃⢵
+⠐⠰⣷⠀⠀⠀⠀⢀⢟⣽⣆⠀⢃
+⠰⣾⣶⣤⡼⢳⣦⣤⣴⣾⣿⣿⠞
+⠀⠈⠉⠉⠛⠛⠉⠉⠉⠙⠁
+⠀⠀⡐⠘⣿⣿⣯⠿⠛⣿⡄
+⠀⠀⠁⢀⣄⣄⣠⡥⠔⣻⡇
+⠀⠀⠀⠘⣛⣿⣟⣖⢭⣿⡇
+⠀⠀⢀⣿⣿⣿⣿⣷⣿⣽⡇
+⠀⠀⢸⣿⣿⣿⡇⣿⣿⣿⣇
+⠀⠀⠀⢹⣿⣿⡀⠸⣿⣿⡏
+⠀⠀⠀⢸⣿⣿⠇⠀⣿⣿⣿
+⠀⠀⠀⠈⣿⣿⠀⠀⢸⣿⡿
+⠀⠀⠀⠀⣿⣿⠀⠀⢀⣿⡇
+⠀⣠⣴⣿⡿⠟⠀⠀⢸⣿⣷
+⠀⠉⠉⠁⠀⠀⠀⠀⢸⣿⣿⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈','JmDbE.gif');
+Insert into Item VALUES(null,'Keemstar','Scarce v2.0','TheScarceFilesTM.jpg');
+Insert into Item VALUES(null,'Digga willst Stress?!!!','187 und der Rest verliert! Wer will Stress mit mir?
+Wer will Stress mit mir? Sag, wer will Stress mit mir?
+Der wird wegradiert! Wer ist echt wie wir?
+187 und der Rest verliert! Wer will Stress mit mir?
+Wer will Stress mit mir? Sag, wer will Stress mit mir?
+Der wird wegradiert! Wer ist echt wie wir?','DiggerManWillstStress.PNG')
