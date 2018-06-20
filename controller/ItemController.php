@@ -48,6 +48,8 @@ class ItemController extends BaseController implements ControllerInterface
 
     public function delete(int $id)
     {
+        if($id != $this->renderer->sessionManager->getSessionItem('Item','id'))
+            $this->baseRedirect();
         $this->checkLoggedIn();
         $item = new Item();
         $item->delete($id);
